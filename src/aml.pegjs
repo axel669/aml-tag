@@ -10,7 +10,7 @@ Tag
             	item => item[1]
             )
             .filter(item => item !== null)
-            .map(item => `${item.name}: ${item.value}`)
+            // .map(item => `${item.name}: ${item.value}`)
             .join(", ")
     	const attributes = attrs.reduce(
         	(attr, [, pair]) => {
@@ -34,7 +34,11 @@ JSValue
     }
 Attribute
 	= name:$([a-zA-Z] [a-zA-Z\-]*) "=" value:(String / JSValue) {
-    	return {name, value}
+    	// return {name, value}
+        return `${name}: ${value}`
+    }
+    / "..." value:JSValue {
+        return `...${value}`
     }
 String
 	= $('"' [^"]+ '"') {return text()}

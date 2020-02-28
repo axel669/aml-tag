@@ -1,14 +1,14 @@
 import {parse} from "./parser.js"
 
 const amlCache = {}
-const resolver = (aml) => {
-    if (amlCache[aml] === undefined) {
+const resolver = (amlString) => {
+    if (amlCache[amlString] === undefined) {
         const code = parse(
-            aml,
+            amlString,
             {}
         )
 
-        if (aml.flags.debugJSGen === true) {
+        if (aml.settings.debugJSGen === true) {
             console.log(code)
         }
 
@@ -31,16 +31,21 @@ const aml = (parts, ...values) => {
         []
     ).join("")
 
-    if (aml.flags.debugRaw === true) {
+    if (aml.settings.debugAML === true) {
         console.log(lead)
     }
 
     const fn = resolver(lead)
 
-    return fn(React.createElement, values)
+    return fn(aml.settings.element, values)
 }
-aml.flags = {
-    debugRaw: false,
+aml.settings = {
+    element: (element, attributes, ...children) => ({
+        element,
+        attributes,
+        children,
+    }),
+    debugAML: false,
     debugJSGen: false,
 }
 
