@@ -29,7 +29,7 @@ Tag
 TagName
 	= $([a-z] [a-z\-]*) {return JSON.stringify(text())}
 JSValue
-	= "[_" index:[0-9]+ "]" {
+	= "[_" index:$([0-9]+) "]" {
         return `values[${index}]`
     }
 Attribute

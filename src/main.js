@@ -26,6 +26,7 @@ const aml = (parts, ...values) => {
         },
         []
     ).join("")
+    console.log(lead)
 
     const fn = resolver(lead)
 
