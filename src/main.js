@@ -8,6 +8,10 @@ const resolver = (aml) => {
             {}
         )
 
+        if (aml.flags.debugJSGen === true) {
+            console.log(code)
+        }
+
         const fn = new Function("tagger", "values", `return ${code}`)
         amlCache[aml] = fn
     }
@@ -26,11 +30,18 @@ const aml = (parts, ...values) => {
         },
         []
     ).join("")
-    console.log(lead)
+
+    if (aml.flags.debugRaw === true) {
+        console.log(lead)
+    }
 
     const fn = resolver(lead)
 
     return fn(React.createElement, values)
+}
+aml.flags = {
+    debugRaw: false,
+    debugJSGen: false,
 }
 
 export default aml
