@@ -1,0 +1,29 @@
+{
+  "name": "aml-tag",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axel669/aml-tag.git"
+  },
+  "keywords": [
+    "jsx",
+    "template-tag-literal"
+  ],
+  "author": "Axel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axel669/aml-tag/issues"
+  },
+  "homepage": "https://github.com/axel669/aml-tag#readme",
+  "dependencies": {
+    "pegjs": "^0.10.0",
+    "rollup": "^1.31.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  }
+}
