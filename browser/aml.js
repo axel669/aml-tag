@@ -168,7 +168,7 @@ var aml = (function () {
                     {}
                 );
                 const childNodes = (children === null)
-                	? ['""']
+                	? []
                     : children[3].filter(item => item !== null);
                 return `tagger(${tag}, {${attr}}, ${childNodes.join(", ")})`
             },

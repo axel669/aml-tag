@@ -167,7 +167,7 @@ function peg$parse(input, options) {
                   {}
               )
               const childNodes = (children === null)
-              	? ['""']
+              	? []
                   : children[3].filter(item => item !== null)
               return `tagger(${tag}, {${attr}}, ${childNodes.join(", ")})`
           },
