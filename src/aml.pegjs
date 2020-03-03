@@ -33,12 +33,15 @@ JSValue
         return `values[${index}]`
     }
 Attribute
-	= name:$([a-zA-Z] [a-zA-Z\-]*) "=" value:(String / JSValue) {
+	= name:$([a-zA-Z] [a-zA-Z0-9]*) "=" value:(String / JSValue) {
     	// return {name, value}
         return `${name}: ${value}`
     }
     / "..." value:JSValue {
         return `...${value}`
+    }
+    / name:$([a-zA-Z] [a-zA-Z0-9]*) {
+        return `${name}: true`
     }
 String
 	= $('"' [^"]+ '"') {return text()}

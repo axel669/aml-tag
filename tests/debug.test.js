@@ -11,7 +11,7 @@ console.log(
     aml`
         <div a="wat" ...${stuff} b="hi"> {
             ${100} / ${2}
-            <test>
+            <test booleanAttr>
         }
     `
 )
